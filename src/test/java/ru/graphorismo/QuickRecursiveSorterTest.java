@@ -18,6 +18,17 @@ public class QuickRecursiveSorterTest {
     }
 
     @Test
+    void whenSortSingleThenReturnSingle(){
+        List<Integer> inputList = new ArrayList<>();
+        inputList.add(1);
+        List<Integer> expectedList = new ArrayList<>();
+        expectedList.add(1);
+        QuickRecursiveSorter<Integer> sorter = new QuickRecursiveSorter<>(inputList);
+        List<Integer> resultList = sorter.sortInAscendingOrderIntoCopy();
+        Assertions.assertIterableEquals(expectedList, resultList);
+    }
+
+    @Test
     void whenSortStraightThenReturnStraight(){
         List<Integer> inputList = new ArrayList<>();
         inputList.add(3);

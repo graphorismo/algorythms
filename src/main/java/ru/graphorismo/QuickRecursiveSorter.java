@@ -2,8 +2,9 @@ package ru.graphorismo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class QuickRecursiveSorter <T extends Comparable<T>> {
+public class QuickRecursiveSorter <T extends Comparable<T>> implements ISorter<T> {
 
     private final List<T> dataList;
 
@@ -11,6 +12,7 @@ public class QuickRecursiveSorter <T extends Comparable<T>> {
         this.dataList = dataList;
     }
 
+    @Override
     public List<T> sortInAscendingOrderIntoCopy(){
         List<T> copy = new ArrayList<>(dataList);
         List<T> result = quicksortAscending(copy);
@@ -22,21 +24,26 @@ public class QuickRecursiveSorter <T extends Comparable<T>> {
             return input;
         }
         else{
-            T pivot = input.get(0);
+            int pivotId = (int)Math.round(Math.random()*(input.size()-1));
+            T pivot = input.get(pivotId);
 
             List<T> less = new ArrayList<>();
-            for (int i = 1; i < input.size(); ++i){
-                T element = input.get(i);
-                if (element.compareTo(pivot) < 0 || element.compareTo(pivot) == 0){
-                    less.add(element);
+            for (int i = 0; i < input.size(); ++i){
+                if(i != pivotId){
+                    T element = input.get(i);
+                    if (element.compareTo(pivot) < 0 || element.compareTo(pivot) == 0){
+                        less.add(element);
+                    }
                 }
             }
 
             List<T> greater = new ArrayList<>();
-            for (int i = 1; i < input.size(); ++i){
-                T element = input.get(i);
-                if (element.compareTo(pivot) > 0){
-                    greater.add(element);
+            for (int i = 0; i < input.size(); ++i){
+                if (i != pivotId){
+                    T element = input.get(i);
+                    if (element.compareTo(pivot) > 0){
+                        greater.add(element);
+                    }
                 }
             }
 
@@ -49,6 +56,7 @@ public class QuickRecursiveSorter <T extends Comparable<T>> {
         }
     }
 
+    @Override
     public List<T> sortInDescendingOrderIntoCopy(){
         List<T> copy = new ArrayList<>(dataList);
         List<T> result = quicksortDescending(copy);
@@ -60,21 +68,26 @@ public class QuickRecursiveSorter <T extends Comparable<T>> {
             return input;
         }
         else{
-            T pivot = input.get(0);
+            int pivotId = (int)Math.round(Math.random()*(input.size()-1));
+            T pivot = input.get(pivotId);
 
             List<T> less = new ArrayList<>();
-            for (int i = 1; i < input.size(); ++i){
-                T element = input.get(i);
-                if (element.compareTo(pivot) < 0 || element.compareTo(pivot) == 0){
-                    less.add(element);
+            for (int i = 0; i < input.size(); ++i){
+                if( i != pivotId){
+                    T element = input.get(i);
+                    if (element.compareTo(pivot) < 0 || element.compareTo(pivot) == 0){
+                        less.add(element);
+                    }
                 }
             }
 
             List<T> greater = new ArrayList<>();
-            for (int i = 1; i < input.size(); ++i){
-                T element = input.get(i);
-                if (element.compareTo(pivot) > 0){
-                    greater.add(element);
+            for (int i = 0; i < input.size(); ++i){
+                if (i != pivotId){
+                    T element = input.get(i);
+                    if (element.compareTo(pivot) > 0){
+                        greater.add(element);
+                    }
                 }
             }
 
