@@ -1,4 +1,4 @@
-package ru.graphorismo;
+package ru.graphorismo.sort;
 
 import java.util.List;
 

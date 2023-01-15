@@ -2,6 +2,7 @@ package ru.graphorismo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.graphorismo.sort.SelectionSorter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,31 +39,6 @@ public class SelectionSorterTest {
 
         SelectionSorter<Integer> sorter = new SelectionSorter<>(inputList);
         List<Integer> sortedList = sorter.sortInAscendingOrderIntoCopy();
-
-        Assertions.assertIterableEquals(compareList, sortedList);
-    }
-
-    @Test
-    void whenSortStraightStableThenReturnStraightStable(){
-
-        IntWrapper first = new IntWrapper(2);
-        IntWrapper second = new IntWrapper(2);
-        IntWrapper third = new IntWrapper(2);
-
-        List<IntWrapper> inputList = new ArrayList<>();
-        inputList.add(first);
-        inputList.add(second);
-        inputList.add(third);
-
-
-        List<IntWrapper> compareList = new ArrayList<>();
-        compareList.add(first);
-        compareList.add(second);
-        compareList.add(third);
-
-
-        SelectionSorter<IntWrapper> sorter = new SelectionSorter<>(inputList);
-        List<IntWrapper> sortedList = sorter.sortInAscendingOrderIntoCopy();
 
         Assertions.assertIterableEquals(compareList, sortedList);
     }

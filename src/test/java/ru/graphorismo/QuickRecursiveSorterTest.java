@@ -2,6 +2,7 @@ package ru.graphorismo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.graphorismo.sort.QuickRecursiveSorter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,9 @@
-package ru.graphorismo;
+package ru.graphorismo.sort;
+
+import ru.graphorismo.sort.ISorter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class QuickRecursiveSorter <T extends Comparable<T>> implements ISorter<T> {
 
